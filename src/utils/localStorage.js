@@ -1,8 +1,4 @@
-/**
- * Save data to localStorage
- * @param {string} key - Key to store data under
- * @param {any} data - Data to store (will be JSON stringified)
- */
+
 export const saveToLocalStorage = (key, data) => {
   try {
     localStorage.setItem(key, JSON.stringify(data));
@@ -11,12 +7,7 @@ export const saveToLocalStorage = (key, data) => {
   }
 };
 
-/**
- * Load data from localStorage
- * @param {string} key - Key to retrieve data from
- * @param {any} defaultValue - Default value if key doesn't exist
- * @returns {any} - Parsed data or default value
- */
+
 export const loadFromLocalStorage = (key, defaultValue) => {
   try {
     const item = localStorage.getItem(key);
@@ -27,10 +18,7 @@ export const loadFromLocalStorage = (key, defaultValue) => {
   }
 };
 
-/**
- * Remove item from localStorage
- * @param {string} key - Key to remove
- */
+
 export const removeFromLocalStorage = (key) => {
   try {
     localStorage.removeItem(key);
@@ -39,9 +27,7 @@ export const removeFromLocalStorage = (key) => {
   }
 };
 
-/**
- * Clear all items from localStorage
- */
+
 export const clearLocalStorage = () => {
   try {
     localStorage.clear();
