@@ -68,7 +68,7 @@ const EditInvoiceForm = ({ invoiceId, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Validate form
+    
     if (!invoice.clientId || !invoice.clientName) {
       alert('Please fill in client information');
       return;
@@ -79,7 +79,7 @@ const EditInvoiceForm = ({ invoiceId, onClose }) => {
       return;
     }
     
-    // Update invoice
+    
     dispatch({
       type: 'UPDATE_INVOICE',
       payload: {

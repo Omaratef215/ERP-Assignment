@@ -67,7 +67,7 @@ const InvoiceForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Validate form
+    
     if (!invoice.clientId || !invoice.clientName) {
       alert('Please fill in client information');
       return;
@@ -78,10 +78,10 @@ const InvoiceForm = () => {
       return;
     }
     
-    // Generate unique invoice number
+    
     const invoiceNumber = `INV-${format(new Date(), 'yyyyMMdd')}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`;
     
-    // Dispatch action to add invoice
+    
     dispatch({
       type: 'ADD_INVOICE',
       payload: {
@@ -96,7 +96,7 @@ const InvoiceForm = () => {
       }
     });
     
-    // Add notification for invoice due date
+    
     dispatch({
       type: 'ADD_NOTIFICATION',
       payload: {
@@ -112,7 +112,7 @@ const InvoiceForm = () => {
     
     alert(`Invoice ${invoiceNumber} created successfully!`);
     
-    // Reset form (or redirect)
+    
     setInvoice({
       clientId: '',
       clientName: '',

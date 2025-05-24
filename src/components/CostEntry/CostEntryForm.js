@@ -22,13 +22,13 @@ const CostEntryForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Validate form data
+    
     if (!formData.category || !formData.amount) {
       alert('Please fill in all required fields');
       return;
     }
     
-    // Dispatch action to add cost
+    
     dispatch({
       type: 'ADD_COST',
       payload: {
@@ -38,7 +38,7 @@ const CostEntryForm = () => {
       }
     });
     
-    // Reset form
+    
     setFormData({
       category: '',
       amount: '',

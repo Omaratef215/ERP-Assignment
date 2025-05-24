@@ -5,19 +5,19 @@ import { format, isPast, addDays, isWithinInterval } from 'date-fns';
 const NotificationCenter = () => {
   const { state, dispatch } = useAppContext();
   
-  // Check for due dates and update statuses
+  
   useEffect(() => {
     const today = new Date();
     
     state.invoices.forEach(invoice => {
       const dueDate = new Date(invoice.dueDate);
       
-      // If invoice is already paid, skip
+      
       if (invoice.status === 'PAID') {
         return;
       }
       
-      // If due date is past and status isn't already OVERDUE
+      
       if (isPast(dueDate) && invoice.status !== 'OVERDUE') {
         dispatch({
           type: 'ADD_NOTIFICATION',
@@ -33,9 +33,9 @@ const NotificationCenter = () => {
           }
         });
       }
-      // If due date is approaching within 7 days
+      
       else if (isWithinInterval(dueDate, { start: today, end: addDays(today, 7) })) {
-        // Check if we already have an UPCOMING notification for this invoice
+        
         const hasUpcomingNotification = state.notifications.some(
           n => n.invoiceNumber === invoice.invoiceNumber && n.status === 'UPCOMING'
         );
@@ -59,7 +59,7 @@ const NotificationCenter = () => {
     });
   }, [state.invoices, dispatch]);
   
-  // Filter notifications to show only recent ones (last 30 days)
+  
   const recentNotifications = state.notifications
     .filter(notification => {
       const notifDate = new Date(notification.createdAt);
